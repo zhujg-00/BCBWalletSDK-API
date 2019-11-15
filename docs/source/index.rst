@@ -9,8 +9,8 @@ Welcome to BCBWalletSDK's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-BCBWalletSDK接口说明.rst
+   BCBWalletSDK接口说明.rst
+   
 
 Indices and tables
 ==================
