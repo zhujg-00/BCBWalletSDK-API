@@ -27,7 +27,7 @@ author = u'zhujg'
 version = u''
 # The full version, including alpha/beta/rc tags
 release = u'1.0.0'
-
+latex_engine = 'xelatex'
 
 # -- General configuration ---------------------------------------------------
 
