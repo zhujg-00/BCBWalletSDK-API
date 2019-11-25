@@ -9,11 +9,11 @@
 +===========+=============+==============+================+
 | v.1.0.0   | bcbwallet   | 2019-04-01   | 初始版本       |
 +-----------+-------------+--------------+----------------+
-| v.1.0.1   | bcbwallet   | 2019-06-24   | 推送模块       |
+| v.1.0.1   | bcbwallet   | 2019-07-01   | bcbwallet2.0   |
 +-----------+-------------+--------------+----------------+
-| v.1.0.2   | bcbwallet   | 2019-07-01   | bcbwallet2.0   |
+| v.1.0.2   | bcbwallet   | 2019-10-23   | 新增侧链钱包   |
 +-----------+-------------+--------------+----------------+
-| v.1.0.3   | bcbwallet   | 2019-10-23   | 新增侧链钱包   |
+| v.1.0.3   | bcbwallet   | 2019-11-25   | 新增域名切换   |
 +-----------+-------------+--------------+----------------+
 
 --------------
@@ -109,8 +109,8 @@ API调用，返回的内容也是一个json串，里面会携带返回的状态
 1.1 方法原型
 ^^^^^^^^^^^^
 
--(**void**)loadAllChainsFinish:(\ **void**\ (^)(ICSDKResultModel \*
-result))finish;
+**-(void)loadAllChainsFinish:(void(^)(ICSDKResultModel \*
+result))finish;**
 
 1.2 返回结果
 ^^^^^^^^^^^^
@@ -123,8 +123,9 @@ result))finish;
         "code":0,
         "msg": "ok",
         "result": {
-            "devtest":["http://103.17.30.84:46657"],
-            "sctest":["http://103.17.30.85:46657/sctest"]
+            "bcb",
+            "yy",
+            "jiujiu"
         }
     }
 
@@ -155,14 +156,14 @@ result))finish;
 | chainId   | string   | 是     | 链ID，传空字符串则重置为主链节点   |
 +-----------+----------+--------+------------------------------------+
 
-6.获取链环境对应的网络节点
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+6.获取域名列表
+~~~~~~~~~~~~~~
 
 1.1 方法原型
 ^^^^^^^^^^^^
 
--(**void**)loadChainNodesFinish:(\ **void**\ (^)(ICSDKResultModel \*
-result))finish;
+**-(void)getDomainListFinish:(void(^)(ICSDKResultModel \*
+result))finish;**
 
 1.2 返回结果
 ^^^^^^^^^^^^
@@ -175,16 +176,9 @@ result))finish;
         "code":0,
         "msg": "ok",
         "result": [
-            {
-                "name":"devwallet",
-                "urlType":0,
-                "url":"http://172.18.10.78/sctest2"
-            },
-           {
-               "name":"http://148.66.11.75:46657",
-               "urlType":1,
-               "url":"http://148.66.11.75:46657"
-           }
+            "https://wallet.bcbchain.io",
+            "https://wallet2.bcbchain.io",
+            "https://api.n8.app"
         ]
     }
 
@@ -198,24 +192,45 @@ result))finish;
         "result":{}
     }
 
-7.节点设置
+7.设置域名
 ~~~~~~~~~~
 
 1.1 方法原型
 ^^^^^^^^^^^^
 
-\*\*-(void)setNodeUrl:(NSString \*)nodeUrl nodeType:(NSInteger)nodeType;\*\*
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**- (**\ void\ **)setWalletDomain:(NSString *)domain finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;**
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 **输入参数说明**
 
-+------------+----------+--------+----------------------------------------+
-| 参数名     | 类型     | 必须   | 说明                                   |
-+============+==========+========+========================================+
-| nodeUrl    | string   | 是     | 网络节点，传空字符串则重置为默认节点   |
-+------------+----------+--------+----------------------------------------+
-| nodeType   | int      | 是     | 节点类型                               |
-+------------+----------+--------+----------------------------------------+
++----------+----------+--------+----------------------+
+| 参数名   | 类型     | 必须   | 说明                 |
++==========+==========+========+======================+
+| domain   | string   | 是     | 域名地址，不能为空   |
++----------+----------+--------+----------------------+
+
+1.2 返回结果
+^^^^^^^^^^^^
+
+**示例：返回结果-正确时**
+
+.. code:: java
+
+    {
+        "code":0,
+        "msg": "操作成功",
+        "result": {}
+    }
+
+**示例：返回结果-错误时**
+
+.. code:: java
+
+    {
+        "code":-1,
+        "msg": "无效域名",
+        "result":{}
+    }
 
 2.钱包管理
 ----------
@@ -521,7 +536,7 @@ finish:(void(^)(ICSDKResultModel \* result))finish;**
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**- (**\ BOOL)hasBindPushID:(NSString \*)walletAddr;
+\*\*- (BOOL)hasBindPushID:(NSString \*)walletAddr;\*\*
 
 **输入参数说明**
 
@@ -552,8 +567,8 @@ finish:(void(^)(ICSDKResultModel \* result))finish;**
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**--(**\ void\ **)bindWalletPush:(NSString *)walletAddr
-finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;**
+**- (void)bindWalletPush:(NSString *)walletAddr
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **输入参数说明**
 
@@ -1569,7 +1584,7 @@ finish:(void(^)(ICSDKResultModel \* result))finish;**
 1.1 方法原型
 ^^^^^^^^^^^^
 
--(**void**)setOtcTheme:(ICOTCThemeType)theme;
+**-(void)setOtcTheme:(ICOTCThemeType)theme;**
 
 **参数字段说明**
 
@@ -1593,7 +1608,7 @@ finish:(void(^)(ICSDKResultModel \* result))finish;**
 1.1 方法原型
 ^^^^^^^^^^^^
 
--(**void**)setOtcBuyBindBankCard:(\ **BOOL**)bind;
+**-(void)setOtcBuyBindBankCard:(BOOL)bind;**
 
 **参数字段说明**
 
@@ -1620,8 +1635,8 @@ finish:(void(^)(ICSDKResultModel \* result))finish;**
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\*\*)bybJudgeHolder:(NSString *)walletAddr
-finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
+**- (void)bybJudgeHolder:(NSString *)walletAddr
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **参数字段说明**
 
@@ -1671,8 +1686,8 @@ finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\*\*)bybBalanceItems:(NSString *)walletAddr
-finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
+**-(void)bybBalanceItems:(NSString *)walletAddr
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **参数字段说明**
 
@@ -1725,8 +1740,8 @@ finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\*\*)encryptContent:(NSString *)content
-finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
+**-(void)encryptContent:(NSString *)content
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **参数字段说明**
 
@@ -1765,8 +1780,8 @@ finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\*\*)decryptContent:(NSString *)content
-finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
+**-(void)decryptContent:(NSString *)content
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **参数字段说明**
 
@@ -1805,9 +1820,9 @@ finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\ **)verifySign:(NSString *)type data:(NSString *)data
+**-(void)verifySign:(NSString *)type data:(NSString *)data
 pubKey:(NSString *)pubKey signature:(NSString *)signature
-finish:(**\ void\*\*(^)(ICSDKResultModel \* result))finish;
+finish:(void(^)(ICSDKResultModel \* result))finish;**
 
 **参数字段说明**
 
@@ -1852,8 +1867,8 @@ finish:(**\ void\*\*(^)(ICSDKResultModel \* result))finish;
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\*\*)getAddrFromMnemonicWords:(NSString *)mnemonicWords
-finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
+**-(void)getAddrFromMnemonicWords:(NSString *)mnemonicWords
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **参数字段说明**
 
@@ -1894,8 +1909,8 @@ finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\*\*)getAddrFromPrivateKey:(NSString *)privateKey
-finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
+**-(void)getAddrFromPrivateKey:(NSString *)privateKey
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **参数字段说明**
 
@@ -1936,9 +1951,8 @@ finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
 1.1 方法原型
 ^^^^^^^^^^^^
 
-**-(**\ void\ **)getAddrFromKeystore:(NSString *)keystore
-password:(NSString *)password finish:(**\ void\*\*(^)(ICSDKResultModel
-\* result))finish;
+**-(void)getAddrFromKeystore:(NSString *)keystore password:(NSString
+*)password finish:(void(^)(ICSDKResultModel \* result))finish;**
 
 **参数字段说明**
 
