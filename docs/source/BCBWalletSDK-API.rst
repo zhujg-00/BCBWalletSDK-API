@@ -77,8 +77,7 @@ API调用，返回的内容也是一个json串，里面会携带返回的状态
 **2.1 方法原型**
 ^^^^^^^^^^^^^^^^
 
-+ (**void**)setLanguage:(NSString \*)language;
-''''''''''''''''''''''''''''''''''''''''''''''
+\*\*+（void)setLanguage:(NSString \*)language;\*\*
 
 **输入参数说明**
 
@@ -131,7 +130,6 @@ result))finish;**
 ^^^^^^^^^^^^^^^^
 
 \*\*-(void)setWalletChain:(NSString \*)chainId;\*\*
-'''''''''''''''''''''''''''''''''''''''''''''''''''
 
 **输入参数说明**
 
@@ -185,8 +183,8 @@ result))finish;**
 6.1 方法原型
 ^^^^^^^^^^^^
 
-**- (**\ void\ **)setWalletDomain:(NSString *)domain finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;**
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**- (void)setWalletDomain:(NSString *)domain
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **输入参数说明**
 
@@ -228,8 +226,9 @@ result))finish;**
 1.1 方法原型
 ^^^^^^^^^^^^
 
--(**void**)createWallet:(NSString *)name password:(NSString *)password recommend:(NSString *)recommend finish:(\ **void**\ (^)(ICSDKResultModel * result))finish;
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**-(void)createWallet:(NSString *)name password:(NSString *)password
+recommend:(NSString *)recommend finish:(void(^)(ICSDKResultModel *
+result))finish;**
 
 **输入参数说明**
 
@@ -930,10 +929,9 @@ finish:(void(^)(ICSDKResultModel \* result))finish;**
 2.1 方法原型
 ^^^^^^^^^^^^
 
-**-(void)walletCommonPay:(NSString *)walletAddr
-version:(\ **int**)version password:(NSString *)password
-walletCall:(NSString *)walletCall finish:(void(^)(ICSDKResultModel *
-result))finish;**
+**-(void)walletCommonPay:(NSString *)walletAddr version:(int)version
+password:(NSString *)password walletCall:(NSString *)walletCall
+finish:(void(^)(ICSDKResultModel * result))finish;**
 
 **参数字段说明**
 
