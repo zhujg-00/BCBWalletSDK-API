@@ -11,6 +11,7 @@ Welcome to BCBWalletSDK's documentation!
    :caption: Contents:
    
    BCBWalletSDK-API.rst
+   Android_BCBWalletSDK-API.rst
    
 
 Indices and tables
