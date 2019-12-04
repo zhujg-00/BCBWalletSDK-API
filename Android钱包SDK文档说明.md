@@ -1,6 +1,6 @@
 # Android钱包SDK文档说明
 
-# 版本&更新记录
+## 版本&更新记录
 
 | 版本号  | 作者      | 日期       | 更新内容                |
 | ------- | --------- | ---------- | ----------------------- |
@@ -9,17 +9,17 @@
 | v3.0    | bcbwallet | 2019-11-14 | 增加2.13-2.15侧链的支持 |
 | v4.0    | bcbwallet | 2019-12-04 | 增加域名切换            |
 
-# 功能说明
+## 功能说明
 
 本文档提供钱包的SDK访问接口说明。Android版本。
 
-# 接口访问方式
+## 接口访问方式
 
 普通方法调用的方式，以下接口都是WalletAssistant的静态方法
 
-# 1.初始化
+## 1.初始化
 
-## 1.1 初始化接口
+### 1.1 初始化接口
 
 方法原型：
 
@@ -40,7 +40,7 @@ true：初始化成功，false：初始化失败
 
 全局的初始化接口，建议在Application的onCreate中调用
 
-## 1.2 设置接入方自生成的ID
+### 1.2 设置接入方自生成的ID
 
 方法原型：
 
@@ -52,7 +52,7 @@ void setPushId(String pushId);
 | ------ | ------ | ---- | -------------------------- |
 | pushId | string | 是   | 接入方自生成的ID（可为空） |
 
-## 1.3 获取当前环境所有的链的信息
+### 1.3 获取当前环境所有的链的信息
 
 方法原型：
 
@@ -86,7 +86,7 @@ WalletAssistant.getChainInfo(new OnWalletCallback<List<String>>() {
 });
 ```
 
-## 1.4 切换链
+### 1.4 切换链
 
 方法原型
 
@@ -103,7 +103,7 @@ void switchChain(String chainName,final OnWalletCallback<String> callback)；
 
 1.3方法拿到所有的链的列表以后选择其中的一个进行切换
 
-## 1.5 获取当前的链的名称
+### 1.5 获取当前的链的名称
 
 方法原型
 
@@ -117,7 +117,7 @@ String getCurrentChain();
 
 String  当前使用的链的名称，例如 devtest,jiujiu
 
-## 1.6 获取域名列表
+### 1.6 获取域名列表
 
 方法原型：
 
@@ -151,7 +151,7 @@ WalletAssistant.getDomainList(new OnWalletCallback<List<String>>() {
 });
 ```
 
-## 1.7 设置域名
+### 1.7 设置域名
 
 方法原型
 
@@ -168,9 +168,9 @@ void setWalletDomain(String domain,final OnWalletCallback<String> callback)；
 
 1.6方法拿到所有的域名列表以后选择其中的一个进行设置
 
-# 2.钱包管理
+## 2.钱包管理
 
-## 2.1 创建钱包
+### 2.1 创建钱包
 
 方法原型：
 
@@ -189,7 +189,7 @@ void setWalletDomain(String domain,final OnWalletCallback<String> callback)；
 
 无
 
-## 2.2 获取所有钱包
+### 2.2 获取所有钱包
 
 方法原型：
 
@@ -205,7 +205,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.3 导出助记词
+### 2.3 导出助记词
 
 方法原型：
 
@@ -223,7 +223,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.4 导出私钥
+### 2.4 导出私钥
 
 方法原型：
 
@@ -241,7 +241,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.5 导出keystore
+### 2.5 导出keystore
 
 方法原型：
 
@@ -259,7 +259,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.6 导入私钥生成钱包
+### 2.6 导入私钥生成钱包
 
 方法原型：
 
@@ -279,7 +279,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.7 导入keystore生成钱包
+### 2.7 导入keystore生成钱包
 
 方法原型：
 
@@ -299,7 +299,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.8 导入助记词生成钱包
+### 2.8 导入助记词生成钱包
 
 方法原型：
 
@@ -319,7 +319,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.9 验证钱包密码
+### 2.9 验证钱包密码
 
 方法原型：
 
@@ -337,7 +337,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.10 修改钱包密码
+### 2.10 修改钱包密码
 
 方法原型：
 
@@ -356,7 +356,7 @@ void OnWalletListCallback<WalletEntity> getWallets();
 
 无
 
-## 2.11 修改钱包名称
+### 2.11 修改钱包名称
 
 方法原型：
 
@@ -374,7 +374,7 @@ void changeWalletName(String address,String newName,OnWalletCallback<Boolean> ca
 
 无
 
-## 2.12 删除钱包
+### 2.12 删除钱包
 
 方法原型：
 
@@ -392,9 +392,9 @@ void deleteWallet(String address,String password,OnWalletCallback<Boolean> callb
 
 无
 
-# 3 资产管理
+## 3 资产管理
 
-## 3.1 钱包转账
+### 3.1 钱包转账
 
 方法原型：
 
@@ -416,7 +416,7 @@ void deleteWallet(String address,String password,OnWalletCallback<Boolean> callb
 
 无
 
-## 3.2 通用支付-通用型合约支付接口
+### 3.2 通用支付-通用型合约支付接口
 
 方法原型：
 
@@ -492,7 +492,7 @@ void deleteWallet(String address,String password,OnWalletCallback<Boolean> callb
 }
 ```
 
-## 3.3 查询指定地址资产
+### 3.3 查询指定地址资产
 
 方法原型：
 
@@ -510,7 +510,7 @@ void deleteWallet(String address,String password,OnWalletCallback<Boolean> callb
 
 无
 
-## 3.4 获取系统可添加资产列表
+### 3.4 获取系统可添加资产列表
 
 方法原型：
 
@@ -527,7 +527,7 @@ void deleteWallet(String address,String password,OnWalletCallback<Boolean> callb
 
 无
 
-## 3.5 查询指定地址、指定币种信息
+### 3.5 查询指定地址、指定币种信息
 
 方法原型：
 
@@ -546,7 +546,7 @@ void deleteWallet(String address,String password,OnWalletCallback<Boolean> callb
 
 无
 
-## 3.6 查询指定币种交易记录
+### 3.6 查询指定币种交易记录
 
 方法原型：
 
@@ -566,11 +566,11 @@ void deleteWallet(String address,String password,OnWalletCallback<Boolean> callb
 
 无
 
-# 4.OTC及闪兑模块
+## 4.OTC及闪兑模块
 
 普通方法调用的方式，以下接口都是OtcFastAssistance的静态方法
 
-## 4.1 初始化
+### 4.1 初始化
 
 方法原型：
 
@@ -584,7 +584,7 @@ void init();
 
 OTC模块初始化接口，建议在Application的onCreate中调用
 
-## 4.2 OTC开发环境设置
+### 4.2 OTC开发环境设置
 
 方法原型：
 
@@ -596,7 +596,7 @@ void setMode(int mode);
 | ------ | ---- | ---- | ------------------------ |
 | mode   | int  | 是   | 0：测试环境、1：正式环境 |
 
-## 4.3 OTC模块皮肤主题设置
+### 4.3 OTC模块皮肤主题设置
 
 方法原型：
 
@@ -608,7 +608,7 @@ void setOtcTheme(int otcTheme);
 | -------- | ---- | ---- | ------------------------ |
 | otcTheme | int  | 是   | 0：白色主题、1：暗色主题 |
 
-## 4.4 OTC买币强制绑定银行卡设置
+### 4.4 OTC买币强制绑定银行卡设置
 
 方法原型：
 
@@ -620,7 +620,7 @@ void setOtcBuyBindBankCard(boolean bindCard);
 | -------- | ------- | ---- | ------------------------- |
 | bindCard | boolean | 是   | 默认不强制，强制绑定为YES |
 
-## 4.5 OTC入口
+### 4.5 OTC入口
 
 方法原型：
 
@@ -630,7 +630,7 @@ void gotoOtc();
 
 略
 
-## 4.6 闪兑入口
+### 4.6 闪兑入口
 
 方法原型：
 
@@ -640,11 +640,11 @@ void gotoFastChange();
 
 略
 
-# 5 工具
+## 5 工具
 
 普通方法调用的方式，以下接口都是WalletAssistant的静态方法
 
-## 5.1 加密
+### 5.1 加密
 
 方法原型：
 
@@ -657,7 +657,7 @@ void encryptContent(String content,OnWalletCallback<String> callback);
 | content  | String                   | 是   | 加密内容                                                     |
 | callback | OnWalletCallback<String> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，String为加密后内容 |
 
-## 5.2 解密
+### 5.2 解密
 
 方法原型：
 
@@ -670,7 +670,7 @@ void decryptContent(String encContent,OnWalletCallback<String> callback);
 | content  | String                   | 是   | 解密内容                                                     |
 | callback | OnWalletCallback<String> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，String为解密后内容 |
 
-## 5.3 生成密钥对
+### 5.3 生成密钥对
 
 方法原型：
 
@@ -682,7 +682,7 @@ void genKeyPair(final OnWalletCallback<KeyPairEntity> callback);
 | -------- | ------------------------------- | ---- | ------------------------------------------------------------ |
 | callback | OnWalletCallback<KeyPairEntity> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，回调接口，KeyPairEntity见[6.10](#6.10 KeyPairEntity) |
 
-## 5.4 私钥签名
+### 5.4 私钥签名
 
 方法原型：
 
@@ -696,7 +696,7 @@ void genSign(String privateKey, String hexData, final OnWalletCallback<SignResul
 | hexData    | String                             | 是   | 待签名内容hex                                                |
 | callback   | OnWalletCallback<SignResultEntity> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，SignResultEntity见[6.11](#6.11 SignResultEntity) |
 
-## 5.5 数据验签
+### 5.5 数据验签
 
 方法原型：
 
@@ -711,7 +711,7 @@ void verifyClientData(String content, String pubKey, String signature, OnWalletC
 | signature | String                    | 是   | 签名hex                                                      |
 | callback  | OnWalletCallback<Boolean> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，true 成功，false 失败 |
 
-## 5.6 根据助记词返回对应钱包地址
+### 5.6 根据助记词返回对应钱包地址
 
 方法原型：
 
@@ -724,7 +724,7 @@ void getAddrFromMnenonicWords(final String mnenonicwords,OnWalletCallback<String
 | mnenonicwords | String                   | 是   | 助记词                                                       |
 | callback      | OnWalletCallback<String> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，String为钱包地址 |
 
-## 5.7 根据私钥返回对应钱包地址
+### 5.7 根据私钥返回对应钱包地址
 
 方法原型：
 
@@ -737,7 +737,7 @@ void getAddrFromPrivateKey(final String privatekey,OnWalletCallback<String> call
 | privatekey | String                   | 是   | 私钥                                                         |
 | callback   | OnWalletCallback<String> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，String为钱包地址 |
 
-## 5.8 根据Keystore返回对应钱包地址
+### 5.8 根据Keystore返回对应钱包地址
 
 方法原型：
 
@@ -751,9 +751,9 @@ void getAddrFromKeyStore(final String keystore, final String password, OnWalletC
 | password | String                   | 是   | 密码                                                         |
 | callback | OnWalletCallback<String> | 是   | 回调接口，见附录[6.1](#6.1 OnWalletCallback)，String为钱包地址 |
 
-# 6 附录
+## 6 附录
 
-## 6.1 OnWalletCallback
+### 6.1 OnWalletCallback
 
 ```java
 interface OnWalletCallback<T> {
@@ -765,7 +765,7 @@ interface OnWalletCallback<T> {
 }
 ```
 
-## 6.2 OnWalletListCallback
+### 6.2 OnWalletListCallback
 
 ```java
 interface OnWalletListCallback<T> {
@@ -777,7 +777,7 @@ interface OnWalletListCallback<T> {
 }
 ```
 
-## 6.3 CreateWalletEntity
+### 6.3 CreateWalletEntity
 
 ```java
 class CreateWalletEntity {
@@ -787,7 +787,7 @@ class CreateWalletEntity {
 }
 ```
 
-## 6.4 WalletEntity
+### 6.4 WalletEntity
 
 ```java
 class WalletEntity {
@@ -796,7 +796,7 @@ class WalletEntity {
 }
 ```
 
-## 6.5 BalanceEntity
+### 6.5 BalanceEntity
 
 ```java
 class BalanceEntity {
@@ -812,7 +812,7 @@ class BalanceEntity {
 } 
 ```
 
-## 6.6 AssetEntity
+### 6.6 AssetEntity
 
 ```java
 class AssetEntity {
@@ -825,7 +825,7 @@ class AssetEntity {
 }
 ```
 
-## 6.7 AssetDetailEntity
+### 6.7 AssetDetailEntity
 
 ```java
 class AssetDetailEntity {
@@ -840,7 +840,7 @@ class AssetDetailEntity {
 }
 ```
 
-## 6.8 TransactionRecord
+### 6.8 TransactionRecord
 
 ```java
 class TransactionRecord {
@@ -860,7 +860,7 @@ class TransactionRecord {
 }
 ```
 
-## 6.9 OnExecCallback
+### 6.9 OnExecCallback
 
 ```java
 interface OnExecCallback {
@@ -869,7 +869,7 @@ interface OnExecCallback {
 }
 ```
 
-## 6.10 KeyPairEntity
+### 6.10 KeyPairEntity
 
 ```java
 class KeyPairEntity {
@@ -878,7 +878,7 @@ class KeyPairEntity {
 }
 ```
 
-## 6.11 SignResultEntity
+### 6.11 SignResultEntity
 
 ```java
 class SignResultEntity {
