@@ -77,7 +77,7 @@ API调用，返回的内容也是一个json串，里面会携带返回的状态
 **2.1 方法原型**
 ^^^^^^^^^^^^^^^^
 
-\*\*+（void)setLanguage:(NSString \*)language;\*\*
+\*\*+(void)setLanguage:(NSString \*)language;\*\*
 
 **输入参数说明**
 
