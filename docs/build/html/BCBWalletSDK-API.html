@@ -1,36 +1,345 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>钱包SDK接口文档说明 &#8212; BCBWalletSDK 1.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>钱包SDK接口文档说明 &mdash; BCBWalletSDK 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to BCBWalletSDK’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="index.html" class="icon icon-home"> BCBWalletSDK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">钱包SDK接口文档说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">版本&amp;更新记录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">功能说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">接口访问方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">1.初始化设置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app">1.注册APP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">1.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">1.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.语言设置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">2.1 方法原型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id">3.获取主链及所有侧链ID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">3.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">3.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">4.链环境设置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">4.1 方法原型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">5.获取域名列表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">5.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">5.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">6.设置域名</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">6.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">6.2 返回结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">2.钱包管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">1.创建新钱包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">1.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">1.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">2.导入私钥生成钱包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id24">2.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">2.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#keystore">3.导入Keystore生成钱包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id26">3.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">3.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">4.导入助记词生成钱包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id29">4.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">4.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">5.获取所有钱包信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id32">5.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">5.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">6.导出助记词</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id35">6.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">6.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">7.导出私钥</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id38">7.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39">7.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">8.导出Keystore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id41">8.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id42">8.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id43">9.验证钱包密码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id44">9.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">9.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id46">10.修改钱包密码（主链钱包对应的所有侧链钱包密码唯一）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id47">10.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id48">10.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">11.修改钱包名称（主链钱包对应的所有侧链钱包名称唯一）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id50">11.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id51">11.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id52">12.删除钱包（主链钱包对应的其他侧链钱包同步删除）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id53">12.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id54">12.2 返回结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id55">3.支付及交易查询</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id56">1.钱包转账</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id57">1.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id58">1.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id59">2.通用支付-通用型合约支付接口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id60">2.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id61">2.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id62">3.查询指定地址资产</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id63">3.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id64">3.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id65">4.获取系统可添加资产列表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id66">4.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id67">4.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id68">5.查询指定地址、指定币种信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id69">5.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id70">5.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id71">6.查询指定币种交易记录</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id72">6.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id73">6.2 返回结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#otc">4.OTC及闪兑模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id74">1.OTC模块皮肤主题设置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id75">1.1 方法原型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id76">2.OTC买币强制绑定银行卡设置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id77">2.1 方法原型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id78">3.OTC入口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id79">3.1 方法原型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id80">4.闪兑入口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id81">4.1 方法原型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id82">5.退出OTC/闪兑</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id83">5.工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id84">1.加密</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id85">1.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id86">1.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id87">2.解密</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id88">2.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id89">2.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id90">3.生成密钥对</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id91">3.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id92">3.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id93">4.私钥签名</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id94">4.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id95">4.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id96">5.数据验签</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id97">5.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id98">5.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id99">6.根据助记词返回对应钱包地址</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id100">6.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id101">6.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id102">7.根据私钥返回对应钱包地址</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id103">7.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id104">7.2 返回结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id105">8.根据Keystore返回对应钱包地址</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id106">8.1 方法原型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id107">8.2 返回结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BCBWalletSDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>钱包SDK接口文档说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/BCBWalletSDK-API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="sdk">
 <h1>钱包SDK接口文档说明<a class="headerlink" href="#sdk" title="Permalink to this headline">¶</a></h1>
@@ -58,18 +367,18 @@
 </tr>
 <tr class="row-odd"><td>v.1.0.1</td>
 <td>bcbwallet</td>
-<td>2019-06-24</td>
-<td>推送模块</td>
-</tr>
-<tr class="row-even"><td>v.1.0.2</td>
-<td>bcbwallet</td>
 <td>2019-07-01</td>
 <td>bcbwallet2.0</td>
 </tr>
-<tr class="row-odd"><td>v.1.0.3</td>
+<tr class="row-even"><td>v.1.0.2</td>
 <td>bcbwallet</td>
 <td>2019-10-23</td>
 <td>新增侧链钱包</td>
+</tr>
+<tr class="row-odd"><td>v.1.0.3</td>
+<td>bcbwallet</td>
+<td>2019-11-25</td>
+<td>新增域名切换</td>
 </tr>
 </tbody>
 </table>
@@ -89,6 +398,7 @@
 <h2>1.初始化设置<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="app">
 <h3>1.注册APP<a class="headerlink" href="#app" title="Permalink to this headline">¶</a></h3>
+<p><strong>说明：在APPDelegate中调用</strong></p>
 <div class="section" id="id5">
 <h4>1.1 方法原型<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p><strong>+ (BOOL)registerApp:(NSString *)appid pushID:(NSString *)pushid;</strong></p>
@@ -115,8 +425,8 @@
 </tr>
 <tr class="row-odd"><td>pushid</td>
 <td>string</td>
-<td>是</td>
-<td>第三方接入的推送ID</td>
+<td>否</td>
+<td>接入方自生成的ID（可为空）</td>
 </tr>
 </tbody>
 </table>
@@ -135,10 +445,10 @@
 </div>
 <div class="section" id="id7">
 <h3>2.语言设置<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>(<strong>void</strong>)setLanguage:(NSString *)language;</li>
-</ul>
-<hr class="docutils" />
+<p><strong>说明：设置SDK内部接口回调信息的语言类型</strong></p>
+<div class="section" id="id8">
+<h4>2.1 方法原型<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p><strong>+ (void)setLanguage:(NSString *)language;</strong></p>
 <p><strong>输入参数说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -163,53 +473,24 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id8">
-<h3>3.开发环境设置<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p><strong>输入参数说明</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="16%" />
-<col width="8%" />
-<col width="8%" />
-<col width="67%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">参数名</th>
-<th class="head">类型</th>
-<th class="head">必须</th>
-<th class="head">说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>walletDebug</td>
-<td>int</td>
-<td>是</td>
-<td>钱包管理链环境（<em>0：研发链、1：测试链、2：正式链</em>）</td>
-</tr>
-<tr class="row-odd"><td>otcDebug</td>
-<td>int</td>
-<td>是</td>
-<td>OTC及闪兑模块链环境（<em>0：研发链、1：测试链、2：正式链</em>）</td>
-</tr>
-</tbody>
-</table>
 </div>
+<div class="section" id="id">
+<h3>3.获取主链及所有侧链ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id9">
-<h3>4.获取主链及所有侧链信息<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id10">
-<h4>1.1 方法原型<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<p>-(<strong>void</strong>)loadAllChainsFinish:(<strong>void</strong>(^)(ICSDKResultModel *
-result))finish;</p>
+<h4>3.1 方法原型<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)loadAllChainsFinish:(void(^)(ICSDKResultModel *
+result))finish;</strong></p>
 </div>
-<div class="section" id="id11">
-<h4>1.2 返回结果<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id10">
+<h4>3.2 返回结果<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
     <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;devtest&quot;</span><span class="p">:[</span><span class="s2">&quot;http://103.17.30.84:46657&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;sctest&quot;</span><span class="p">:[</span><span class="s2">&quot;http://103.17.30.85:46657/sctest&quot;</span><span class="p">]</span>
+        <span class="s2">&quot;bcb&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;yy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jiujiu&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -224,8 +505,11 @@ result))finish;</p>
 </div>
 </div>
 </div>
+<div class="section" id="id11">
+<h3>4.链环境设置<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id12">
-<h3>5.链环境设置<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<h4>4.1 方法原型<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p><strong>- (void)setWalletChain:(NSString *)chainId;</strong></p>
 <p><strong>输入参数说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -250,30 +534,24 @@ result))finish;</p>
 </tbody>
 </table>
 </div>
+</div>
 <div class="section" id="id13">
-<h3>6.获取链环境对应的网络节点<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h3>5.获取域名列表<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id14">
-<h4>1.1 方法原型<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
-<p>-(<strong>void</strong>)loadChainNodesFinish:(<strong>void</strong>(^)(ICSDKResultModel *
-result))finish;</p>
+<h4>5.1 方法原型<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)getDomainListFinish:(void(^)(ICSDKResultModel *
+result))finish;</strong></p>
 </div>
 <div class="section" id="id15">
-<h4>1.2 返回结果<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<h4>5.2 返回结果<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
     <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;devwallet&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;urlType&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;http://172.18.10.78/sctest2&quot;</span>
-        <span class="p">},</span>
-       <span class="p">{</span>
-           <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;http://148.66.11.75:46657&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;urlType&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-           <span class="s2">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;http://148.66.11.75:46657&quot;</span>
-       <span class="p">}</span>
+        <span class="s2">&quot;https://wallet.bcbchain.io&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://wallet2.bcbchain.io&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://api.n8.app&quot;</span>
     <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -289,14 +567,19 @@ result))finish;</p>
 </div>
 </div>
 <div class="section" id="id16">
-<h3>7.节点设置<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<h3>6.设置域名<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p><strong>说明：在接口返回网络连接错误后可从—获取域名列表—接口中选择其余域名切换后重试</strong></p>
+<div class="section" id="id17">
+<h4>6.1 方法原型<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<p><strong>- (void)setWalletDomain:(NSString *)domain
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>输入参数说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="17%" />
-<col width="14%" />
-<col width="11%" />
-<col width="57%" />
+<col width="20%" />
+<col width="20%" />
+<col width="16%" />
+<col width="44%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">参数名</th>
@@ -306,28 +589,44 @@ result))finish;</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>nodeUrl</td>
+<tr class="row-even"><td>domain</td>
 <td>string</td>
 <td>是</td>
-<td>网络节点，传空字符串则重置为默认节点</td>
-</tr>
-<tr class="row-odd"><td>nodeType</td>
-<td>int</td>
-<td>是</td>
-<td>节点类型</td>
+<td>域名地址，不能为空</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="id17">
-<h2>2.钱包管理<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id18">
-<h3>1.创建新钱包<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<h4>6.2 返回结果<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<p><strong>示例：返回结果-正确时</strong></p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;操作成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>示例：返回结果-错误时</strong></p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;无效域名&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="id19">
-<h4>1.1 方法原型<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="void-createwallet-nsstring-name-password-nsstring-password-recommend-nsstring-recommend-finish-void-icsdkresultmodel-result-finish">
-<h5>-(<strong>void</strong>)createWallet:(NSString <em>)name password:(NSString *)password recommend:(NSString *)recommend finish:(**void*</em>(^)(ICSDKResultModel * result))finish;<a class="headerlink" href="#void-createwallet-nsstring-name-password-nsstring-password-recommend-nsstring-recommend-finish-void-icsdkresultmodel-result-finish" title="Permalink to this headline">¶</a></h5>
+<h2>2.钱包管理<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h3>1.创建新钱包<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h4>1.1 方法原型<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)createWallet:(NSString *)name password:(NSString *)password
+recommend:(NSString *)recommend finish:(void(^)(ICSDKResultModel *
+result))finish;</strong></p>
 <p><strong>输入参数说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -362,9 +661,8 @@ result))finish;</p>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="id20">
-<h4>1.2 返回结果<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id22">
+<h4>1.2 返回结果<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -416,10 +714,10 @@ result))finish;</p>
 </div>
 </div>
 </div>
-<div class="section" id="id21">
-<h3>2.导入私钥生成钱包<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id22">
-<h4>1.1 方法原型<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id23">
+<h3>2.导入私钥生成钱包<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id24">
+<h4>2.1 方法原型<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)importPrivateKey:(NSString *)name key:(NSString *)key
 password:(NSString *)password recommend:(NSString *)recommend
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
@@ -462,8 +760,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id23">
-<h4>1.2 返回结果<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id25">
+<h4>2.2 返回结果<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -512,8 +810,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 <div class="section" id="keystore">
 <h3>3.导入Keystore生成钱包<a class="headerlink" href="#keystore" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id24">
-<h4>1.1 方法原型<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id26">
+<h4>3.1 方法原型<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)importKeystore:(NSString *)name key:(NSString *)key
 password:(NSString *)password recommend:(NSString *)recommend
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
@@ -556,8 +854,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id25">
-<h4>1.2 返回结果<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id27">
+<h4>3.2 返回结果<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -604,10 +902,10 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id26">
-<h3>4.导入助记词生成钱包<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id27">
-<h4>1.1 方法原型<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id28">
+<h3>4.导入助记词生成钱包<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h4>4.1 方法原型<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)importMnemonicWords:(NSString *)name key:(NSString *)key
 password:(NSString *)password recommend:(NSString *)recommend
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
@@ -650,8 +948,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id28">
-<h4>1.2 返回结果<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id30">
+<h4>4.2 返回结果<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -698,14 +996,14 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id29">
-<h3>5.获取所有钱包信息<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id30">
-<h4>1.1 方法原型<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
-<p>**-(ICSDKResultModel *)getWallets;**</p>
-</div>
 <div class="section" id="id31">
-<h4>1.2 返回结果<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h4>
+<h3>5.获取所有钱包信息<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id32">
+<h4>5.1 方法原型<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(ICSDKResultModel *)getWallets;</strong></p>
+</div>
+<div class="section" id="id33">
+<h4>5.2 返回结果<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -758,101 +1056,10 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id32">
-<h3>6.钱包推送绑定状态<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id33">
-<h4>1.1 方法原型<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h4>
-<p><strong>- (</strong>BOOL)hasBindPushID:(NSString *)walletAddr;</p>
-<p><strong>输入参数说明</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="23%" />
-<col width="18%" />
-<col width="27%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">参数名</th>
-<th class="head">类型</th>
-<th class="head">必须</th>
-<th class="head">说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>walletAddr</td>
-<td>string</td>
-<td>是</td>
-<td>钱包地址</td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="section" id="id34">
-<h4>1.2 返回结果<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h4>
-<p><strong>示例：返回结果-已绑定</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">YES</span><span class="p">;</span>
-</pre></div>
-</div>
-<p><strong>示例：返回结果-未绑定</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">NO</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
+<h3>6.导出助记词<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id35">
-<h3>7.绑定钱包推送<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id36">
-<h4>1.1 方法原型<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h4>
-<p><strong>–(</strong>void<strong>)bindWalletPush:(NSString *)walletAddr
-finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
-<p><strong>输入参数说明</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="23%" />
-<col width="18%" />
-<col width="27%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">参数名</th>
-<th class="head">类型</th>
-<th class="head">必须</th>
-<th class="head">说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>walletAddr</td>
-<td>string</td>
-<td>是</td>
-<td>钱包地址</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id37">
-<h4>1.2 返回结果<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h4>
-<p><strong>示例：返回结果-正确时</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>示例：返回结果-错误时</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1001</span><span class="p">,</span>
-    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;推送注册失败&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;result&quot;</span><span class="p">:{}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id38">
-<h3>8.导出助记词<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id39">
-<h4>1.1 方法原型<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h4>
+<h4>6.1 方法原型<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)getMnemonicWords:(NSString *)walletAddr password:(NSString
 *)password finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -884,8 +1091,8 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id40">
-<h4>1.2 返回结果<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id36">
+<h4>6.2 返回结果<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -927,10 +1134,10 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </div>
 </div>
 </div>
-<div class="section" id="id41">
-<h3>9.导出私钥<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id42">
-<h4>1.1 方法原型<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id37">
+<h3>7.导出私钥<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id38">
+<h4>7.1 方法原型<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)exportPrivateKey:(NSString *)walletAddr password:(NSString
 *)password finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -962,8 +1169,8 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id43">
-<h4>1.2 返回结果<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id39">
+<h4>7.2 返回结果<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1004,10 +1211,10 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </div>
 </div>
 </div>
-<div class="section" id="id44">
-<h3>10.导出Keystore<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id45">
-<h4>1.1 方法原型<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id40">
+<h3>8.导出Keystore<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id41">
+<h4>8.1 方法原型<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)exportKeystore:(NSString *)walletAddr password:(NSString
 *)password finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -1039,8 +1246,8 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id46">
-<h4>1.2 返回结果<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id42">
+<h4>8.2 返回结果<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1081,10 +1288,10 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </div>
 </div>
 </div>
-<div class="section" id="id47">
-<h3>11.验证钱包密码<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id48">
-<h4>1.1 方法原型<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id43">
+<h3>9.验证钱包密码<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id44">
+<h4>9.1 方法原型<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)verifyPassword:(NSString *)walletAddr password:(NSString
 *)password finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -1116,8 +1323,8 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id49">
-<h4>1.2 返回结果<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id45">
+<h4>9.2 返回结果<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1136,10 +1343,10 @@ finish:(**void</strong>(^)(ICSDKResultModel * result))finish;**</p>
 </div>
 </div>
 </div>
-<div class="section" id="id50">
-<h3>12.修改钱包密码（主链钱包对应的所有侧链钱包密码唯一）<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id51">
-<h4>1.1 方法原型<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id46">
+<h3>10.修改钱包密码（主链钱包对应的所有侧链钱包密码唯一）<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id47">
+<h4>10.1 方法原型<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)changePassword:(NSString *)walletAddr oldPassword:(NSString
 *)oldPassword newPassword:(NSString *)newPassword
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
@@ -1177,8 +1384,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id52">
-<h4>1.2 返回结果<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id48">
+<h4>10.2 返回结果<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1197,10 +1404,10 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id53">
-<h3>13.修改钱包名称（主链钱包对应的所有侧链钱包名称唯一）<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id54">
-<h4>1.1 方法原型<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id49">
+<h3>11.修改钱包名称（主链钱包对应的所有侧链钱包名称唯一）<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id50">
+<h4>11.1 方法原型<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)changeWalletName:(NSString *)walletAddr newName:(NSString
 *)newName finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -1232,8 +1439,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id55">
-<h4>1.2 返回结果<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id51">
+<h4>11.2 返回结果<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h4>
 <p><strong>示例：返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1279,10 +1486,10 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id56">
-<h3>14.删除钱包（主链钱包对应的其他侧链钱包同步删除）<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id57">
-<h4>1.1 方法原型<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id52">
+<h3>12.删除钱包（主链钱包对应的其他侧链钱包同步删除）<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id53">
+<h4>12.1 方法原型<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)deleteWallet:(NSString *)walletAddr password:(NSString
 *)password finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -1314,8 +1521,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id58">
-<h4>1.2 返回结果<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id54">
+<h4>12.2 返回结果<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1335,15 +1542,15 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id59">
-<h2>3.支付及交易查询<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id60">
-<h3>1.钱包转账<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id61">
-<h4>1.1 方法原型<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id55">
+<h2>3.支付及交易查询<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id56">
+<h3>1.钱包转账<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id57">
+<h4>1.1 方法原型<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)walletTransation:(NSString *)walletAddr password:(NSString
 *)password coinAddr:(NSString *)coinAddr toAddr:(NSString *)toAddr
-value:(NSString *)value note:(NSString *)note byb:(</strong>BOOL<strong>)byb
+value:(NSString *)value note:(NSString *)note
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
@@ -1391,16 +1598,11 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <td>否</td>
 <td>转账的备注，对于BCB链，这个字段最终会写入到区块中</td>
 </tr>
-<tr class="row-even"><td>byb</td>
-<td>string</td>
-<td>是</td>
-<td>是否为BYB转账</td>
-</tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="id62">
-<h4>1.2 返回结果<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id58">
+<h4>1.2 返回结果<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1442,14 +1644,13 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id63">
-<h3>2.通用支付-通用型合约支付接口<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id64">
-<h4>1.1 方法原型<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(void)walletCommonPay:(NSString *)walletAddr
-version:(**int</strong>)version password:(NSString <em>)password
-walletCall:(NSString *)walletCall finish:(void(^)(ICSDKResultModel *
-result))finish;*</em></p>
+<div class="section" id="id59">
+<h3>2.通用支付-通用型合约支付接口<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id60">
+<h4>2.1 方法原型<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)walletCommonPay:(NSString *)walletAddr version:(int)version
+password:(NSString *)password walletCall:(NSString *)walletCall
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1474,7 +1675,7 @@ result))finish;*</em></p>
 <tr class="row-odd"><td>version</td>
 <td>Int</td>
 <td>是</td>
-<td>1.0的支付传1， 2.0的支付传2</td>
+<td>1.0的支付传1， 2.0的支付传2， 3.0的支付传</td>
 </tr>
 <tr class="row-even"><td>password</td>
 <td>string</td>
@@ -1488,42 +1689,81 @@ result))finish;*</em></p>
 </tr>
 </tbody>
 </table>
-<p><strong>示例：walletCall字符串格式</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">walletCall</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">conAddr</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">bcbLTwDzzZn3Jy8cJGvygWLgpTr9hEdVpWZ9</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">methodName</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">BuyXid</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">methodParam</span><span class="se">\&quot;</span><span class="s2">:[{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">_affCode</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">int64</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">12345678</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">_team</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">int64</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">_bcb</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">Number-decimal</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2.5</span><span class="se">\&quot;</span><span class="s2">}],</span><span class="se">\&quot;</span><span class="s2">methodRet</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">smc.Error</span><span class="se">\&quot;</span><span class="s2">}}&quot;</span>
+<p><strong>示例：1.0支付walletCall</strong></p>
+<p>walletCall字符串格式</p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">conAddr</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">bcbLTwDzzZn3Jy8cJGvygWLgpTr9hEdVpWZ9</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">methodName</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">BuyXid</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">methodParam</span><span class="se">\&quot;</span><span class="s2">:[{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">_affCode</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">int64</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">12345678</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">_team</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">int64</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">_bcb</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">Number-decimal</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2.5</span><span class="se">\&quot;</span><span class="s2">}],</span><span class="se">\&quot;</span><span class="s2">methodRet</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">smc.Error</span><span class="se">\&quot;</span><span class="s2">}&quot;</span>
 </pre></div>
 </div>
-<p><strong>示例：展开后的格式</strong></p>
+<p>展开后格式</p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-        <span class="s2">&quot;walletCall&quot;</span><span class="p">:</span>
+    <span class="s2">&quot;conAddr&quot;</span><span class="p">:</span><span class="s2">&quot;bcbLTwDzzZn3Jy8cJGvygWLgpTr9hEdVpWZ9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;methodName&quot;</span><span class="p">:</span><span class="s2">&quot;BuyXid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;methodParam&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">&quot;conAddr&quot;</span><span class="p">:</span><span class="s2">&quot;bcbLTwDzzZn3Jy8cJGvygWLgpTr9hEdVpWZ9&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;methodName&quot;</span><span class="p">:</span><span class="s2">&quot;BuyXid&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;methodParam&quot;</span><span class="p">:</span>
-            <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;_affCode&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;int64&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;12345678&quot;</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;_team&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;int64&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;_bcb&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Number-decimal&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;2.5&quot;</span>
-                <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;methodRet&quot;</span><span class="p">:</span><span class="s2">&quot;smc.Error&quot;</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;_affCode&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;int64&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;12345678&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;_team&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;int64&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;_bcb&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Number-decimal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;2.5&quot;</span>
         <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;methodRet&quot;</span><span class="p">:</span><span class="s2">&quot;smc.Error&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>示例：2.0支付walletCall</strong></p>
+<p>walletCall字符串格式</p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">note</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">ApplyToBanker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">gasLimit</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">3500000</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">contractCall</span><span class="se">\&quot;</span><span class="s2">:[{</span><span class="se">\&quot;</span><span class="s2">contractAddr</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">bcbCsRXXMGkUJ8wRnrBUD7mQsMST4d53JRKJ</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">methodName</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">Transfer</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">methodParams</span><span class="se">\&quot;</span><span class="s2">:[{</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">types.Address</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">bcbJkX5Hcfdewinsc2DkGA5LPNRQix93iwDH</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">bn.Number-decimal</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">value</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0.1</span><span class="se">\&quot;</span><span class="s2">}],</span><span class="se">\&quot;</span><span class="s2">methodRet</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;\&quot;</span><span class="s2">}]}&quot;</span>
+</pre></div>
+</div>
+<p>展开后格式</p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;note&quot;</span><span class="p">:</span> <span class="s2">&quot;ApplyToBanker&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gasLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;3500000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contractCall&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s2">&quot;contractAddr&quot;</span><span class="p">:</span> <span class="s2">&quot;bcbCsRXXMGkUJ8wRnrBUD7mQsMST4d53JRKJ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;methodName&quot;</span><span class="p">:</span> <span class="s2">&quot;Transfer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;methodParams&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;types.Address&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;bcbJkX5Hcfdewinsc2DkGA5LPNRQix93iwDH&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bn.Number-decimal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1&quot;</span>
+        <span class="p">}],</span>
+        <span class="s2">&quot;methodRet&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>示例：3.0支付walletCall</strong></p>
+<p>walletCall字符串格式</p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">note</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">request-banker</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">gasLimit</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">3500000</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">calls</span><span class="se">\&quot;</span><span class="s2">:[{</span><span class="se">\&quot;</span><span class="s2">contract</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">bcbCsRXXMGkUJ8wRnrBUD7mQsMST4d53JRKJ</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">method</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">Transfer(types.Address,bn.Number)</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">params</span><span class="se">\&quot;</span><span class="s2">:[</span><span class="se">\&quot;</span><span class="s2">bcbJkX5Hcfdewinsc2DkGA5LPNRQix93iwDH</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">10</span><span class="se">\&quot;</span><span class="s2">]}]}&quot;</span>
+</pre></div>
+</div>
+<p>展开后格式</p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;note&quot;</span><span class="p">:</span> <span class="s2">&quot;request-banker&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gasLimit&quot;</span><span class="p">:</span> <span class="s2">&quot;3500000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;calls&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s2">&quot;contract&quot;</span><span class="p">:</span> <span class="s2">&quot;bcbCsRXXMGkUJ8wRnrBUD7mQsMST4d53JRKJ&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;Transfer(types.Address,bn.Number)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bcbJkX5Hcfdewinsc2DkGA5LPNRQix93iwDH&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">]</span>
+    <span class="p">}]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id65">
-<h4>1.2 返回结果<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id61">
+<h4>2.2 返回结果<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1565,10 +1805,10 @@ result))finish;*</em></p>
 </div>
 </div>
 </div>
-<div class="section" id="id66">
-<h3>3.查询指定地址资产<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id67">
-<h4>1.1 方法原型<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id62">
+<h3>3.查询指定地址资产<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id63">
+<h4>3.1 方法原型<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)getAddrsBalance:(NSString *)walletAddr legalSymbol:(NSString
 *)legalSymbol finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -1600,8 +1840,8 @@ result))finish;*</em></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id68">
-<h4>1.2 返回结果<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id64">
+<h4>3.2 返回结果<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1734,10 +1974,10 @@ result))finish;*</em></p>
 </div>
 </div>
 </div>
-<div class="section" id="id69">
-<h3>4.获取系统可添加资产列表<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id70">
-<h4>1.1 方法原型<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id65">
+<h3>4.获取系统可添加资产列表<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id66">
+<h4>4.1 方法原型<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)getAssets:(NSString *)walletAddr
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
@@ -1764,8 +2004,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id71">
-<h4>1.2 返回结果<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id67">
+<h4>4.2 返回结果<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1919,10 +2159,10 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id72">
-<h3>5.查询指定地址、指定币种信息<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id73">
-<h4>1.1 方法原型<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id68">
+<h3>5.查询指定地址、指定币种信息<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id69">
+<h4>5.1 方法原型<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)getCoinDeatil:(NSString *)walletAddr coinAddr:(NSString
 *)coinAddr legalSymbol:(NSString *)legalSymbol
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
@@ -1960,8 +2200,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id74">
-<h4>1.2 返回结果<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id70">
+<h4>5.2 返回结果<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2072,10 +2312,10 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 </div>
 </div>
-<div class="section" id="id75">
-<h3>6.查询指定币种交易记录<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id76">
-<h4>1.1 方法原型<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id71">
+<h3>6.查询指定币种交易记录<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id72">
+<h4>6.1 方法原型<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h4>
 <p><strong>-(void)getCoinTransactionDetail:(NSString *)walletAddr
 conAddr:(NSString *)coinAddr page:(NSInteger)page count:(NSInteger)count
 finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
@@ -2118,8 +2358,8 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id77">
-<h4>1.2 返回结果<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id73">
+<h4>6.2 返回结果<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2257,11 +2497,12 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </div>
 <div class="section" id="otc">
 <h2>4.OTC及闪兑模块<a class="headerlink" href="#otc" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id78">
-<h3>1.OTC模块皮肤主题设置<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id79">
-<h4>1.1 方法原型<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h4>
-<p>-(<strong>void</strong>)setOtcTheme:(ICOTCThemeType)theme;</p>
+<div class="section" id="id74">
+<h3>1.OTC模块皮肤主题设置<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h3>
+<p><strong>说明：进入OTC模块前设置</strong></p>
+<div class="section" id="id75">
+<h4>1.1 方法原型<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)setOtcTheme:(ICOTCThemeType)theme;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2287,18 +2528,12 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </table>
 </div>
 </div>
-<div class="section" id="id80">
-<h3>2.OTC入口<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id81">
-<h4>1.1 方法原型<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h4>
-<p><strong>[[OTCStart manager] OTCStart];</strong></p>
-</div>
-</div>
-<div class="section" id="id82">
-<h3>3.OTC买币强制绑定银行卡设置<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id83">
-<h4>1.1 方法原型<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h4>
-<p>-(<strong>void</strong>)setOtcBuyBindBankCard:(<strong>BOOL</strong>)bind;</p>
+<div class="section" id="id76">
+<h3>2.OTC买币强制绑定银行卡设置<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h3>
+<p><strong>说明：进入OTC模块前设置</strong></p>
+<div class="section" id="id77">
+<h4>2.1 方法原型<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)setOtcBuyBindBankCard:(BOOL)bind;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2324,173 +2559,33 @@ finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 </table>
 </div>
 </div>
-<div class="section" id="id84">
-<h3>4.闪兑入口<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id85">
-<h4>1.1 方法原型<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id78">
+<h3>3.OTC入口<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id79">
+<h4>3.1 方法原型<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h4>
+<p><strong>[[OTCStart manager] OTCStart];</strong></p>
+</div>
+</div>
+<div class="section" id="id80">
+<h3>4.闪兑入口<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id81">
+<h4>4.1 方法原型<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h4>
 <p><strong>[[OTCStart manager] fastexStart];</strong></p>
 </div>
 </div>
-</div>
-<div class="section" id="id86">
-<h2>5.工具<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="byb">
-<h3>1.是否为BYB股东<a class="headerlink" href="#byb" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id87">
-<h4>1.1 方法原型<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void**)bybJudgeHolder:(NSString <em>)walletAddr
-finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
-<p><strong>参数字段说明</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="23%" />
-<col width="18%" />
-<col width="27%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">字段名</th>
-<th class="head">类型</th>
-<th class="head">必须</th>
-<th class="head">说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>walletAddr</td>
-<td>string</td>
-<td>是</td>
-<td>钱包地址</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id88">
-<h4>1.2 返回结果<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h4>
-<p><strong>返回结果-正确时</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;result&quot;</span><span class="p">:</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;holder&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>字段说明</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="24%" />
-<col width="24%" />
-<col width="52%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">字段名</th>
-<th class="head">类型</th>
-<th class="head">说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>holder</td>
-<td>string</td>
-<td>0：非股东，1：股东</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回结果-错误时</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1001</span><span class="p">,</span>
-    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;网络错误&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;result&quot;</span><span class="p">:{}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="section" id="id82">
+<h3>5.退出OTC/闪兑<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h3>
+<p>说明：通过ICWalletSDKDelegate退出模块</p>
 </div>
 </div>
-</div>
-<div class="section" id="id89">
-<h3>2.获取BYB染色体<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id90">
-<h4>1.1 方法原型<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void**)bybBalanceItems:(NSString <em>)walletAddr
-finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
-<p><strong>参数字段说明</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="23%" />
-<col width="18%" />
-<col width="27%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">字段名</th>
-<th class="head">类型</th>
-<th class="head">必须</th>
-<th class="head">说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>walletAddr</td>
-<td>string</td>
-<td>是</td>
-<td>钱包地址</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id91">
-<h4>1.2 返回结果<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h4>
-<p><strong>返回结果-正确时</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;result&quot;</span><span class="p">:</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;chromo&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;balance&quot;</span><span class="p">:</span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>字段说明</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="31%" />
-<col width="29%" />
-<col width="40%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">字段名</th>
-<th class="head">类型</th>
-<th class="head">说明</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>chromo</td>
-<td>string</td>
-<td>染色体号码</td>
-</tr>
-<tr class="row-odd"><td>balance</td>
-<td>string</td>
-<td>染色体余额</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回结果-错误时</strong></p>
-<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1001</span><span class="p">,</span>
-    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;网络错误&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;result&quot;</span><span class="p">:{}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id92">
-<h3>3.加密<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id93">
-<h4>1.1 方法原型<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void**)encryptContent:(NSString <em>)content
-finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
+<div class="section" id="id83">
+<h2>5.工具<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id84">
+<h3>1.加密<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id85">
+<h4>1.1 方法原型<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)encryptContent:(NSString *)content
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2515,8 +2610,8 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id94">
-<h4>1.2 返回结果<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id86">
+<h4>1.2 返回结果<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2535,12 +2630,12 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </div>
 </div>
 </div>
-<div class="section" id="id95">
-<h3>4.解密<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id96">
-<h4>1.1 方法原型<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void**)decryptContent:(NSString <em>)content
-finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
+<div class="section" id="id87">
+<h3>2.解密<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id88">
+<h4>2.1 方法原型<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)decryptContent:(NSString *)content
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2565,8 +2660,8 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id97">
-<h4>1.2 返回结果<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id89">
+<h4>2.2 返回结果<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2585,13 +2680,101 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </div>
 </div>
 </div>
-<div class="section" id="id98">
-<h3>5.数据验签<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id99">
-<h4>1.1 方法原型<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void<strong>)verifySign:(NSString *)type data:(NSString *)data
+<div class="section" id="id90">
+<h3>3.生成密钥对<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id91">
+<h4>3.1 方法原型<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)genKeyPairFinish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
+</div>
+<div class="section" id="id92">
+<h4>3.2 返回结果<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h4>
+<p><strong>返回结果-正确时</strong></p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;mnemonic&quot;</span><span class="p">:</span> <span class="s2">&quot;step easy argue casual one hour engage excite speak slab detail blossom&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;priKey&quot;</span><span class="p">:</span> <span class="s2">&quot;29DA5671048493912669E3F309DFE8D1703CD2DB11AC15B973E6035A4D153D1F&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pubKey&quot;</span><span class="p">:</span> <span class="s2">&quot;46BD93A849ACA46F3B51728C36DE40BC27A15B3760B89243DEE624B92A1BB681&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>返回结果-错误时</strong></p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;fail&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id93">
+<h3>4.私钥签名<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id94">
+<h4>4.1 方法原型<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)genericSign:(NSString *)priKey data:(NSString *)data
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
+<p><strong>参数字段说明</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="18%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字段名</th>
+<th class="head">类型</th>
+<th class="head">必须</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>priKey</td>
+<td>string</td>
+<td>是</td>
+<td>私钥hex</td>
+</tr>
+<tr class="row-odd"><td>data</td>
+<td>string</td>
+<td>是</td>
+<td>待签名内容hex</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id95">
+<h4>4.2 返回结果<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h4>
+<p><strong>返回结果-正确时</strong></p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;pubKey&quot;</span><span class="p">:</span> <span class="s2">&quot;4C24B251B0A1FEDCE66DDD37A3CBC4FC46B5173A201BBC840A98FB5F29C496F3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;signature&quot;</span><span class="p">:</span> <span class="s2">&quot;E8C0B40BE53F9869D8E51B830936C131112083DC746CCE16AA3BF002D24A8B16A0CEDA79EF803B39CF8D7539E0C685DEA47CBE2524B7F8D36590816928559908&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>返回结果-错误时</strong></p>
+<div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;fail&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id96">
+<h3>5.数据验签<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id97">
+<h4>5.1 方法原型<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)verifySign:(NSString *)type data:(NSString *)data
 pubKey:(NSString *)pubKey signature:(NSString *)signature
-finish:(</strong>void**(^)(ICSDKResultModel * result))finish;</p>
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2611,7 +2794,7 @@ finish:(</strong>void**(^)(ICSDKResultModel * result))finish;</p>
 <tr class="row-even"><td>type</td>
 <td>string</td>
 <td>是</td>
-<td>算法</td>
+<td>算法，目前只支持ed25519</td>
 </tr>
 <tr class="row-odd"><td>data</td>
 <td>string</td>
@@ -2631,8 +2814,8 @@ finish:(</strong>void**(^)(ICSDKResultModel * result))finish;</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id100">
-<h4>1.2 返回结果<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id98">
+<h4>5.2 返回结果<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2651,12 +2834,12 @@ finish:(</strong>void**(^)(ICSDKResultModel * result))finish;</p>
 </div>
 </div>
 </div>
-<div class="section" id="id101">
-<h3>6.根据助记词返回对应钱包地址<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id102">
-<h4>1.1 方法原型<a class="headerlink" href="#id102" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void**)getAddrFromMnemonicWords:(NSString <em>)mnemonicWords
-finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
+<div class="section" id="id99">
+<h3>6.根据助记词返回对应钱包地址<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id100">
+<h4>6.1 方法原型<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)getAddrFromMnemonicWords:(NSString *)mnemonicWords
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2681,8 +2864,8 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id103">
-<h4>1.2 返回结果<a class="headerlink" href="#id103" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id101">
+<h4>6.2 返回结果<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2703,12 +2886,12 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </div>
 </div>
 </div>
-<div class="section" id="id104">
-<h3>7.根据私钥返回对应钱包地址<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id105">
-<h4>1.1 方法原型<a class="headerlink" href="#id105" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void**)getAddrFromPrivateKey:(NSString <em>)privateKey
-finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
+<div class="section" id="id102">
+<h3>7.根据私钥返回对应钱包地址<a class="headerlink" href="#id102" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id103">
+<h4>7.1 方法原型<a class="headerlink" href="#id103" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)getAddrFromPrivateKey:(NSString *)privateKey
+finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2733,8 +2916,8 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="id106">
-<h4>1.2 返回结果<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id104">
+<h4>7.2 返回结果<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2755,13 +2938,12 @@ finish:(**void*</em>(^)(ICSDKResultModel * result))finish;</p>
 </div>
 </div>
 </div>
-<div class="section" id="id107">
-<h3>8.根据Keystore返回对应钱包地址<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id108">
-<h4>1.1 方法原型<a class="headerlink" href="#id108" title="Permalink to this headline">¶</a></h4>
-<p><strong>-(</strong>void<strong>)getAddrFromKeystore:(NSString *)keystore
-password:(NSString *)password finish:(</strong>void**(^)(ICSDKResultModel
-* result))finish;</p>
+<div class="section" id="id105">
+<h3>8.根据Keystore返回对应钱包地址<a class="headerlink" href="#id105" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id106">
+<h4>8.1 方法原型<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h4>
+<p><strong>-(void)getAddrFromKeystore:(NSString *)keystore password:(NSString
+*)password finish:(void(^)(ICSDKResultModel * result))finish;</strong></p>
 <p><strong>参数字段说明</strong></p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2791,8 +2973,8 @@ password:(NSString *)password finish:(</strong>void**(^)(ICSDKResultModel
 </tbody>
 </table>
 </div>
-<div class="section" id="id109">
-<h4>1.2 返回结果<a class="headerlink" href="#id109" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id107">
+<h4>8.2 返回结果<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h4>
 <p><strong>返回结果-正确时</strong></p>
 <div class="code java highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2817,68 +2999,50 @@ password:(NSString *)password finish:(</strong>void**(^)(ICSDKResultModel
 </div>
 
 
+           </div>
+           
           </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">BCBWalletSDK</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to BCBWalletSDK’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  
 
+  <hr/>
 
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, zhujg
 
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-
-
-
+</footer>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2019, zhujg.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/BCBWalletSDK-API.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-  </body>
+   
+
+</body>
 </html>
