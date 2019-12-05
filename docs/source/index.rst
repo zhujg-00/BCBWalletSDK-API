@@ -10,7 +10,7 @@ Welcome to BCBWalletSDK's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   BCBWalletSDK-API.rst
+   IOS_BCBWalletSDK-API.rst
    Android_BCBWalletSDK-API.rst
    
 
